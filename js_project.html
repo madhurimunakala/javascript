@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <select name="countries" id="countries">
-        <option value="india">india</option>
-        <option value="United States">United States</option>
-        <option value="Canada">Canada</option>
-        <option value="Australia">Australia</option>
+    <select id="countries">
+        <option value="india" class="opt">india</option>
+        <option value="United States" class="opt">United States</option>
+        <option value="Canada" class="opt">Canada</option>
+        <option value="Australia" class="opt">Australia</option>
     </select>
-      <input type="text" id="myText" onkeyup="myFunction()" >
-      
-    
-<script>
-function myFunction() {
-  //alert("You pressed a key inside the input field");
-  var x=[];
-   x=document.getElementById("myText").value;
-  var ele=[];
-   ele=document.getElementById("countries").value;
-  
-  if(ele[0]==x[0]){
-  console.log("You pressed a key inside the input field");
-  }
-}
-</script>
-      
-        
+    <input type="text" id="myText">
+    <button onclick="myFunction()">Tryme</button>
+
+
+    <script>
+        function myFunction() {
+            //alert("You pressed a key inside the input field");
+
+            var x = document.getElementById("myText").value;
+            var ele = [];
+            ele = document.getElementsByClassName("opt");
+            console.log(ele);
+            for (var i = 0; i < ele.length; i++) {
+                if (ele[i].innerHTML == x.startsWith("i" || "C")) {
+
+                    //console.log("You pressed a key inside the input field");
+                }
+                else {
+                    ele[i].innerHTML="";
+                    console.log("not work")
+                }
+            }
+        }
+    </script>
+
+
 </body>
+
 </html>
