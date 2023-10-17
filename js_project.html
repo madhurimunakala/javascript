@@ -9,12 +9,13 @@
 
 <body>
     <select id="countries">
+        <option value="" disabled selected hidden>Please Choose country...</option>
         <option value="india" class="opt">india</option>
         <option value="United States" class="opt">United States</option>
         <option value="Canada" class="opt">Canada</option>
         <option value="Australia" class="opt">Australia</option>
     </select>
-    <input type="text" id="myText">
+    <input type="text" id="myText" placeholder="enter text">
     <button onclick="myFunction()">Tryme</button>
 
 
@@ -27,13 +28,15 @@
             ele = document.getElementsByClassName("opt");
             console.log(ele);
             for (var i = 0; i < ele.length; i++) {
-                if (ele[i].innerHTML == x) {
+                var compare=ele[i].innerHTML;
+                if (compare.substr(0,x.length) == x) {
 
                     //console.log("You pressed a key inside the input field");
                 }
                 else {
                     ele[i].innerHTML="";
-                    console.log("not work")
+                    //document.getElementsByClassName("opt").innerHTML = "";
+                    //console.log("not work")
                 }
             }
         }
