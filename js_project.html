@@ -1,48 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <select id="countries">
-        <option value="" disabled selected hidden>Please Choose country...</option>
-        <option value="india" class="opt">india</option>
-        <option value="United States" class="opt">United States</option>
-        <option value="Canada" class="opt">Canada</option>
-        <option value="Australia" class="opt">Australia</option>
+<html>
+    <head>
+        <h1 align="center" style="color:#00d0ff;">Drop down Box Project</h1>
+    </head>  
+    <body>
+        <!-- <button>list of Countries and States</button> -->
+        <select id="Select">
+          
+            <option class="opt">America</option>
+            <option class="opt">Africa</option>
+            <option class="opt">Bihar</option>
+            <option class="opt">Bengurlu</option>
+            <option class="opt">Canada</option>
+            <option class="opt">India</option>
+            <option class="opt">Island</option>
+            <option class="opt">Iran</option>
+            <option class="opt">Japan</option>
+            <option class="opt">Jharkand</option>
+            <option class="opt">Russia</option>
+            <option class="opt">Europe</option>
+            <option class="opt">England</option>
+            <option class="opt">USA</option>
     </select>
-    <input type="text" id="myText" placeholder="enter text">
-    <button onclick="myFunction()">Tryme</button>
-
-
-    <script>
-        function myFunction() {
-            //alert("You pressed a key inside the input field");
-
-            var x = document.getElementById("myText").value;
-            var ele = [];
-            ele = document.getElementsByClassName("opt");
-            console.log(ele);
-            for (var i = 0; i < ele.length; i++) {
-                var compare=ele[i].innerHTML;
-                if (compare.substr(0,x.length) == x) {
-
-                    //console.log("You pressed a key inside the input field");
-                }
-                else {
-                    ele[i].innerHTML="";
-                    //document.getElementsByClassName("opt").innerHTML = "";
-                    //console.log("not work")
-                }
-            }
-        }
-    </script>
-
-
-</body>
-
+        <!-- <button>Search Elements</button> -->
+        <input type="text" id="search"/>
+        <button onclick="myFunction()">Click</button>
+        <script>
+          function myFunction(){
+              
+              console.log("Function is running");
+             var x=document.getElementById("search").value;
+             var element =[];
+             element=document.getElementsByClassName('opt');
+             console.log(element);
+            for (var i=0; i<=element.length;i++){
+  
+              var option=element[i].innerHTML;
+              // element[i]==option[0];
+                  if (option.substring(0,x.length)==x){
+                   console.log("It is a Working");
+              }
+              else{
+                  element[i].innerHTML="";
+              }
+              }
+          }
+      </script>
+    </body> 
 </html>
+         
+    
