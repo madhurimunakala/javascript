@@ -6,38 +6,45 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="button" onmouseover="ChangeColor()" value="Button" id="myButton" />
-    <input type="button" onmouseover="ChangeColor2()" value="Button" id="myButton1" />
-    <input type="button" onmouseover="ChangeColor3()" value="Button" id="myButton2" />
-    <input type="button" onmouseover="ChangeColor4()" value="Button" id="myButton3" />
-
+    <input type="button"  value="Button" id="myButton" class="opt" style="height:75px;width:75px;background-color:blue">
+    <input type="button"  value="Button" id="myButton1" class="opt" style="height:75px;width:75px;background-color: blueviolet;"/>
+    <input type="button"  value="Button" id="myButton2" class="opt" style="height:75px;width:75px;background-color:red"/>
+    <input type="button"  value="Button" id="myButton3"class="opt" style="height:75px;width:75px;background-color:green"/>
+    <button type="reset" onclick="ChangeColor()" value="submit">Reset</button>  
+    <p id="demo">#8a2be2</p>
 
 
     <script>
         function ChangeColor(){
+            var ele=[];
+            ele=document.getElementsByClassName("opt");
+            for(var i=0;i<ele.length;i++){
             var randomColor = Math.floor(Math.random()*16777215).toString(16);
-            var button = document.getElementById("myButton");
-  button.style.backgroundColor = "#"+randomColor;
+            
+  ele[i].style.backgroundColor = "#"+randomColor;
+  return ele;
         }
-        function ChangeColor2() {  
-  var randomColor = Math.floor(Math.random()*16777215).toString(16);
-            var button = document.getElementById("myButton1");
-  button.style.backgroundColor = "#"+randomColor;
-        }
-        function ChangeColor3() {  
-  var randomColor = Math.floor(Math.random()*16777215).toString(16);
-            var button = document.getElementById("myButton2");
-  button.style.backgroundColor = "#"+randomColor;
-        }
-        function ChangeColor4() {  
-  var randomColor = Math.floor(Math.random()*16777215).toString(16);
-            var button = document.getElementById("myButton3");
-  button.style.backgroundColor = "#"+randomColor;
-        }
-    //const randomColor = Math.floor(Math.random()*16777215).toString(16);
-    //var num=document.getElementsById("rand");
-    //num.style.backgroundcolor="red";
-   // color.innerHTML = "#" + randomColor; 
+        var res=document.getElementById("demo").innerHTML ="#"+randomColor ;
+        for(var i=0;i<ele.length;i++){
+            if(ele[i]==res){
+                console.log("sucees");
+            }
+            else{
+                console.log("not sucess");
+            }
+    }
+    }
+    /*function guesscolor(ele){
+        for(var i=0;i<ele.length;i++){
+            if(ele[i]==res){
+                console.log("sucees");
+            }
+            else{
+                console.log("not sucess");
+            }
+    }
+} */    
         
     </script>
+</body>
 </html>
