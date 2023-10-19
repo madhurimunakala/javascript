@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <h1 align="center" style="color:#00d0ff;">Drop down Box Project</h1>
+</head>
+
+<body>
+    <!-- <button>list of Countries and States</button> -->
+    <select id="countrylist" class="new">
+
+        <option class="opt">America</option>
+        <option class="opt">Africa</option>
+        <option class="opt">Bihar</option>
+        <option class="opt">Bengurlu</option>
+        <option class="opt">Canada</option>
+        <option class="opt">India</option>
+        <option class="opt">Island</option>
+        <option class="opt">Iran</option>
+        <option class="opt">Japan</option>
+        <option class="opt">Jharkand</option>
+        <option class="opt">Russia</option>
+        <option class="opt">Europe</option>
+        <option class="opt">England</option>
+        <option class="opt">USA</option>
+    </select>
+    <!-- <button>Search Elements</button> -->
+    <input type="text" id="search" onkeyup="myFunction()" />
+    <!-- <button onclick="myFunction()">Click</button> -->
+    <script>
+        function myFunction() {
+
+            console.log("Function is running");
+            var x = document.getElementById("search").value;
+            const countrylist=document.getElementById("countrylist").children;
+           console.log(countrylist);
+           
+            //var parent = document.getElementsByClassName("new");
+            /*var element = [];
+            element = document.getElementsByClassName('opt');
+            console.log(element);*/
+            for (var i = 0; i <= countrylist.length; i++) {
+
+                var option = countrylist[i].innerHTML;
+                // element[i]==option[0];
+                if (option.substring(0, x.length) == x) {
+                    console.log("It is a Working");
+                    //element[i].innerHTML=option;
+                }
+                else {
+
+                    //element[i].innerHTML = "";
+                    countrylist[i].style.display="none";
+                    //parent.removeChild(option);
+
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
