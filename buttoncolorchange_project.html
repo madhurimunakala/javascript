@@ -7,43 +7,50 @@
 </head>
 <body>
     <input type="button"  value="Button" id="myButton" class="opt" style="height:75px;width:75px;background-color:blue">
-    <input type="button"  value="Button" id="myButton1" class="opt" style="height:75px;width:75px;background-color: blueviolet;"/>
+    <input type="button"  value="Button" id="myButton1" class="opt" style="height:75px;width:75px;background-color: violet"/>
     <input type="button"  value="Button" id="myButton2" class="opt" style="height:75px;width:75px;background-color:red"/>
     <input type="button"  value="Button" id="myButton3"class="opt" style="height:75px;width:75px;background-color:green"/>
     <button type="reset" onclick="ChangeColor()" value="submit">Reset</button>  
-    <p id="demo">#8a2be2</p>
+    <p id="demo">RGB: (138, 43, 226)</p>
 
 
     <script>
+        var res;
+        var random;
         function ChangeColor(){
             var ele=[];
             ele=document.getElementsByClassName("opt");
             for(var i=0;i<ele.length;i++){
-            var randomColor = Math.floor(Math.random()*16777215).toString(16);
+             randomColor = Math.floor(Math.random()*16777215).toString(16);
+             res=document.getElementById("demo").innerHTML="#"+randomColor;
             
-  ele[i].style.backgroundColor = "#"+randomColor;
-  return ele;
-        }
-        var res=document.getElementById("demo").innerHTML ="#"+randomColor ;
-        for(var i=0;i<ele.length;i++){
-            if(ele[i]==res){
-                console.log("sucees");
-            }
-            else{
-                console.log("not sucess");
-            }
+        ele[i].style.backgroundColor = "#"+randomColor;
     }
+    function hexToRgb(hex) {
+    // Remove the hash sign, if it exists
+    hex = hex.replace(/^#/, '');
+
+    // Parse the hex values for red, green, and blue
+    var r = parseInt(hex.substring(0, 2), 16);
+    var g = parseInt(hex.substring(2, 4), 16);
+    var b = parseInt(hex.substring(4, 6), 16);
+
+    // Return the RGB values as an object
+    return { r, g, b };
+}
+
+// Example usage:
+var hexCode = res;
+var rgbValues = hexToRgb(hexCode);
+var resultelement=document.getElementById("demo");
+resultelement.innerHTML=`RGB: (${rgbValues.r}, ${rgbValues.g}, ${rgbValues.b})`;
+        
+
+   
+        
+
     }
-    /*function guesscolor(ele){
-        for(var i=0;i<ele.length;i++){
-            if(ele[i]==res){
-                console.log("sucees");
-            }
-            else{
-                console.log("not sucess");
-            }
-    }
-} */    
+   
         
     </script>
 </body>
