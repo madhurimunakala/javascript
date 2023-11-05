@@ -6,15 +6,48 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="button"  value="Button" id="myButton" class="opt" style="height:75px;width:75px;background-color:blue">
-    <input type="button"  value="Button" id="myButton1" class="opt" style="height:75px;width:75px;background-color: violet"/>
+    <input type="button" onclick="buttoncguess3()" value="button" id="myButton" class="opt" style="height:75px;width:75px;background-color:blue" />
+    <input type="button"  onclick="buttoncguess()" value="Button" id="myButton1" class="opt" style="height:75px;width:75px;background-color: violet"/>
     <input type="button"  value="Button" id="myButton2" class="opt" style="height:75px;width:75px;background-color:red"/>
-    <input type="button"  value="Button" id="myButton3"class="opt" style="height:75px;width:75px;background-color:green"/>
+    <input type="button" onclick="buttoncguess2()" value="Button" id="myButton3"class="opt" style="height:75px;width:75px;background-color:green"/>
     <button type="reset" onclick="ChangeColor()" value="submit">Reset</button>  
-    <p id="demo">RGB: (138, 43, 226)</p>
-
+    <p id="demo">rgb(0, 0, 255)</p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
 
     <script>
+        
+
+        function buttoncguess(){
+  // Get the updated color when the button color changes
+  var myButton = document.getElementById("myButton1");
+  var buttonStyle = window.getComputedStyle(myButton);
+  var buttonColor = buttonStyle.getPropertyValue('background-color');
+ var res=document.getElementById("demo").innerHTML;
+ if(res==buttonColor){
+    document.getElementById("demo1").innerHTML = "match";
+
+  console.log('Button Color:',buttonColor);
+}
+else{
+    document.getElementById("demo2").innerHTML = "notmatch";
+    console.log("not match");
+}}
+function buttoncguess2(){
+  // Get the updated color when the button color changes
+  var myButton = document.getElementById("myButton3");
+  var buttonStyle = window.getComputedStyle(myButton);
+  var buttonColor = buttonStyle.getPropertyValue('background-color');
+ var res=document.getElementById("demo").innerHTML;
+ if(res==buttonColor){
+    document.getElementById("demo1").innerHTML = "match";
+
+  console.log('Button Color:',buttonColor);
+}
+else{
+    document.getElementById("demo2").innerHTML = "notmatch";
+    console.log("not match");
+}}
         var res;
         var random;
         function ChangeColor(){
@@ -23,7 +56,7 @@
             for(var i=0;i<ele.length;i++){
              randomColor = Math.floor(Math.random()*16777215).toString(16);
              res=document.getElementById("demo").innerHTML="#"+randomColor;
-            
+             ele[i]=document.getElementsByClassName("opt").innerHTML=randomColor;
         ele[i].style.backgroundColor = "#"+randomColor;
     }
     function hexToRgb(hex) {
@@ -43,8 +76,20 @@
 var hexCode = res;
 var rgbValues = hexToRgb(hexCode);
 var resultelement=document.getElementById("demo");
-resultelement.innerHTML=`RGB: (${rgbValues.r}, ${rgbValues.g}, ${rgbValues.b})`;
-        
+resultelement.innerHTML=`rgb(${rgbValues.r}, ${rgbValues.g}, ${rgbValues.b})`;
+var myButton = document.getElementById('myButton');
+
+// Add an event listener for the input event
+//myButton.addEventListener("click", buttoncguess)
+
+// Change the button color programmatically
+//myButton.style.color = 'blue';
+
+// Trigger the input event manually
+//var inputEvent = new Event('click');
+//myButton.dispatchEvent(inputEvent);
+
+
 
    
         
@@ -52,6 +97,6 @@ resultelement.innerHTML=`RGB: (${rgbValues.r}, ${rgbValues.g}, ${rgbValues.b})`;
     }
    
         
-    </script>
+</script>
 </body>
 </html>
